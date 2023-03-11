@@ -62,6 +62,12 @@ nav {
 .prof {
   color: #45d7da;
 }
+.vap {
+  color: #a8848d;
+}
+.cartIcon {
+  color: #7baab1;
+}
 
 @media (max-width: 362px) {
   .navtitles {

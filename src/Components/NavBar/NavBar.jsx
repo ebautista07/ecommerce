@@ -1,7 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./nav-foot.css";
 import LocalFireDepartmentTwoToneIcon from "@mui/icons-material/LocalFireDepartmentTwoTone";
 import AccountCircleTwoToneIcon from "@mui/icons-material/AccountCircleTwoTone";
+import SmokingRoomsTwoToneIcon from "@mui/icons-material/SmokingRoomsTwoTone";
+import OpacityTwoToneIcon from "@mui/icons-material/OpacityTwoTone";
 import CartWidget from "../CartWidget/CartWidget";
 
 const NavBar = () => {
@@ -10,28 +13,41 @@ const NavBar = () => {
       <header>
         <nav className="principalNav">
           <div className="logo">
-            <a href="/">
+            <Link to="/">
               <img className="logoVvape" src="/navlogo2.png" alt="logo" />
-            </a>
+            </Link>
           </div>
           <ul className="navtitles">
-            <a href="/">
+            <Link to="/">
               <li>
                 <AccountCircleTwoToneIcon className="prof" />
                 Perfil
               </li>
-            </a>
-            <a href="/">
+            </Link>
+            <Link to="/">
               <li>
                 <LocalFireDepartmentTwoToneIcon className="fire" />
                 Productos
               </li>
-            </a>
-            <a href="/">
+            </Link>
+
+            <Link to="/category/Vaper">
               <li>
-                <CartWidget />
+                <SmokingRoomsTwoToneIcon className="vap" />
+                Vaporizadores
               </li>
-            </a>
+            </Link>
+            <Link to="/category/liquid">
+              <li>
+                <OpacityTwoToneIcon />
+                Esencias
+              </li>
+            </Link>
+            <Link to="/cart">
+              <li>
+                <CartWidget className="cartIcon" />
+              </li>
+            </Link>
           </ul>
           <i id="burger" className="fa-solid fa-bars navicon" />
         </nav>
