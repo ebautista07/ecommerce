@@ -7,6 +7,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const Item = ({ element }) => {
   return (
@@ -19,21 +20,24 @@ const Item = ({ element }) => {
         border: "1px solid #151f28",
         borderRadius: "10px",
         boxShadow: "0px 0px 10px #151f28",
+        marginLeft:"50px",
+        marginRight:"50px",
+        
       }}
     >
       <CardMedia sx={{ height: 200 }} image={element.img} />
       <CardContent sx={{ height: 110 }}>
-        <Typography gutterBottom variant="h6" component="div" align="center">
+        <Typography  style={{ fontFamily: "Nunito", fontSize: "18px" }} component="div" align="center">
           {element.title}
         </Typography>
-        <Typography variant="body" component="div" align="center">
-          {element.price}
+        <Typography variant="body" component="div" align="center" style={{ fontFamily: "Nunito" }}> 
+          ${toThousand(element.price)}
         </Typography>
       </CardContent>
       <CardActions style={{ justifyContent: "center" }}>
         <Link to={`/itemDetail/${element.id}`}>
-          <Button
-            style={{ backgroundColor: "#7baab1" }}
+          <Button className="btn4"
+            style={{ backgroundColor: "#7baab1", fontFamily: "Nunito", color:"white"}}
             component="div"
             justifyContent="center"
             size="small"

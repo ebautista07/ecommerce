@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import ItemList from "../ItemList/ItemList";
-import PulseLoader from "react-spinners/PulseLoader";
+import BarLoader from "react-spinners/BarLoader";
 
 import { db } from "../../firebaseConfig";
 
@@ -39,11 +39,11 @@ const ItemListContainer = () => {
 
   if (items.length === 0) {
     return (
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <PulseLoader
-          color={"#7F669D"}
+      <div style={{ display: "flex", justifyContent: "center", marginTop: "40vh"}}>
+        <BarLoader
+          color={"#de5764"}
           // loading={loading}
-          size={50}
+          size={100}
           aria-label="Loading Spinner"
           data-testid="loader"
         />

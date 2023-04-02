@@ -1,8 +1,14 @@
 
 .container{
     border: 1px solid black;
+   
 }
+
+
 
 .title{
     color: red;
+}
+.cardContent{
+    font-family: 'Nunito', sans-serif;
 }

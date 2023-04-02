@@ -43,7 +43,7 @@ const Form = () => {
      
       setError(true);
       setErrorMessage(
-        "la contraseña no debe tener espacios en blanco y debe tener como minimo 5 caracteres"
+        "La contraseña no debe tener espacios en blanco y debe tener como minimo 5 caracteres"
       );
       return;
     }

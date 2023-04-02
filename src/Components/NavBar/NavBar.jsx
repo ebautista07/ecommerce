@@ -18,12 +18,12 @@ const NavBar = () => {
             </Link>
           </div>
           <ul className="navtitles">
-            <Link to="/">
+            {/* <Link to="/">
               <li>
                 <AccountCircleTwoToneIcon className="prof" />
                 Perfil
               </li>
-            </Link>
+            </Link> */}
             <Link to="/">
               <li>
                 <LocalFireDepartmentTwoToneIcon className="fire" />

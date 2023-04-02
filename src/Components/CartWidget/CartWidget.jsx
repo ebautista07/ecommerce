@@ -1,4 +1,5 @@
-import { BsFillCartCheckFill } from "react-icons/bs";
+// import { BsFillCartCheckFill } from "react-icons/bs";
+import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
 import "./CartWidget.css";
 
 import { useContext } from "react";
@@ -14,10 +15,10 @@ const CartWidget = () => {
   return (
     <Link to="/cart">
       <div className="container-cart">
-        <BsFillCartCheckFill
+        <ShoppingCartTwoToneIcon
           style={{
-            fontSize: "2rem",
-            color: "#e1d4c7",
+            fontSize: "1.5rem",
+            color: "#45d7da",
           }}
         />
         <div className="bubble-counter">
@@ -29,3 +30,5 @@ const CartWidget = () => {
 };
 
 export default CartWidget;
+
+

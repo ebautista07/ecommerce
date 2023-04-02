@@ -5,6 +5,7 @@ import "./Cart.css";
 import Swal from "sweetalert2";
 import FormCheckout from "../FormCheckout/FormCheckout";
 import { Link } from "react-router-dom";
+const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const Cart = () => {
   const { cart, clearCart, getTotalPrice, deleteProductById } =
     useContext(CartContext);
@@ -14,7 +15,7 @@ const Cart = () => {
 
   const clear = () => {
     Swal.fire({
-      title: "Seguro que quieres vaciar el carrito?",
+      title: "¿Seguro que quieres vaciar el carrito?",
       showDenyButton: true,
       showCancelButton: true,
       confirmButtonText: "Si, vaciar",
@@ -31,10 +32,31 @@ const Cart = () => {
 
   if (orderId) {
     return (
-      <div>
-        <h2>Gracias por su compra</h2>
-        <h4>el comprobante es : {orderId}</h4>
-        <Link to="/">Seguir comprando</Link>
+      <div className="checkOut">
+        <div
+          className="fieldSet2"
+          style={{
+            fontFamily: "Nunito",
+            display: "block",
+            borderColor: "black",
+            width: "70%",
+          }}
+        >
+          <div className="flexForm">
+            <div>
+            <h1>¡Gracias por su compra!</h1>
+            <br />
+            Su número de orden es : {orderId}
+            <br />
+            </div>
+            <br />
+            <div>
+              <button >
+                <Link to="/" className="btnCheckout"  >SEGUIR COMPRANDO</Link>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -47,17 +69,22 @@ const Cart = () => {
             {cart.map((item) => {
               return (
                 <div key={item.id} className="cart-item">
-                  <img src={item.img} alt="" />
+                  <img src={item.img} alt="" className="img"/>
                   <div className="cart-item-info">
                     <h2>{item.name}</h2>
-                    <h2>${item.price}.-</h2>
-                    <h2>Unidades: {item.quantity}</h2>
+                    <h2>${toThousand(item.price)}</h2>
+                    <h2>Cantidad: {item.quantity}</h2>
                     <Button
+                      className="btn3"
                       color="secondary"
                       variant="contained"
                       onClick={() => deleteProductById(item.id)}
+                      style={{
+                        fontFamily: "Nunito",
+                        backgroundColor: "#de5764",
+                      }}
                     >
-                      Borrar del carrito
+                      Quitar del carrito
                     </Button>
                   </div>
                 </div>
@@ -65,22 +92,26 @@ const Cart = () => {
             })}
           </div>
           <div className="cart-info">
-            <h3>Precio total: {getTotalPrice()}</h3>
-            <h3>Descuento: - </h3>
-            <h3>Precio final: -</h3>
+            <h1>Precio total: ${toThousand(getTotalPrice())}</h1>
+            {/* <h3>Descuento: - </h3> */}
+            {/* <h3>Precio final: -</h3> */}
 
             {cart.length > 0 && (
               <div className="btn-cart">
-                <Button variant="contained" onClick={() => setShowForm(true)}>
+                <Button
+                  className="btn3"
+                  variant="contained"
+                  onClick={() => setShowForm(true)}
+                >
                   Terminar la compra
                 </Button>
-                <Button onClick={clear} variant="contained">
+                <Button className="btn3" onClick={clear} variant="contained">
                   Vaciar carrito
                 </Button>
               </div>
             )}
 
-            <h1>El total del carrito es ${getTotalPrice()}</h1>
+            {/* <h1>El total del carrito es ${getTotalPrice()}</h1> */}
           </div>
         </div>
       ) : (
